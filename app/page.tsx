@@ -1,254 +1,123 @@
 "use client";
-import { useState } from 'react';
-import { 
-  Heart, MessageCircle, Shield, Sparkles, Users, MapPin,
-  CheckCircle, ArrowRight, Star, Lock, Camera, Video,
-  Smile, Coffee, Music, Compass
-} from 'lucide-react';
+// app/page.tsx — Javari Connect (Dating)
+// Turbopack-safe: inline styles only, no framer-motion, no Tailwind
+// CR AudioViz AI · EIN 39-3646201 · June 2026
+import { useState } from "react";
 
-const features = [
-  { icon: Sparkles, title: 'AI Matching', desc: 'Smart algorithms find your most compatible matches' },
-  { icon: Shield, title: 'Verified Profiles', desc: 'Photo verification ensures real people only' },
-  { icon: Video, title: 'Video Dates', desc: 'Get to know matches through video before meeting' },
-  { icon: Lock, title: 'Privacy First', desc: 'Control who sees your profile and information' },
-];
-
-const interests = [
-  { icon: Coffee, name: 'Coffee Lover' },
-  { icon: Music, name: 'Music' },
-  { icon: Compass, name: 'Travel' },
-  { icon: Camera, name: 'Photography' },
-];
-
-const stats = [
-  { value: '2M+', label: 'Active Users' },
-  { value: '500K+', label: 'Matches Made' },
-  { value: '50K+', label: 'Success Stories' },
-  { value: '4.8/5', label: 'App Rating' },
-];
-
-const testimonials = [
-  { name: 'Jessica & David', duration: 'Together 2 years', quote: 'We matched on shared values and it just clicked!' },
-  { name: 'Michael & Sarah', duration: 'Engaged', quote: 'The video date feature helped us connect before meeting.' },
-  { name: 'Alex & Jordan', duration: 'Married', quote: 'Found my soulmate. Forever grateful.' },
+const FEATURES = [
+  { icon:"🤖", title:"AI Matchmaking",      desc:"Javari AI analyzes compatibility beyond just interests — understanding values, communication styles, and life goals" },
+  { icon:"🔐", title:"Privacy First",        desc:"Your data is yours. We never sell profiles or share information with third parties. Ever." },
+  { icon:"💬", title:"Meaningful Conversations", desc:"AI-guided icebreakers that lead to real connections, not small talk" },
+  { icon:"✅", title:"Verified Profiles",    desc:"Photo and identity verification to ensure authentic connections" },
+  { icon:"🗺️", title:"Local & Global",       desc:"Meet people in Fort Myers or anywhere in the world based on your preferences" },
+  { icon:"❤️",  title:"Relationship Goals",  desc:"Whether you're looking for friendship, dating, or a life partner — we match your intentions" },
 ];
 
 export default function DatingPage() {
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+
+  function joinWaitlist() {
+    if (email.includes("@")) {
+      setSubmitted(true);
+    }
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-rose-950/20 to-slate-950">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/95 backdrop-blur-md border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-rose-500 to-pink-600 rounded-lg flex items-center justify-center">
-                <Heart className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <span className="font-bold text-white text-lg">Javari Connect</span>
-                <span className="text-rose-400 text-xs block -mt-1">by CR AudioViz AI</span>
-              </div>
-            </div>
-            <div className="hidden md:flex items-center gap-6">
-              <a href="#how-it-works" className="text-gray-300 hover:text-white transition">How It Works</a>
-              <a href="#success" className="text-gray-300 hover:text-white transition">Success Stories</a>
-              <a href="#safety" className="text-gray-300 hover:text-white transition">Safety</a>
-              <a href="#start" className="px-4 py-2 bg-gradient-to-r from-rose-600 to-pink-600 text-white font-medium rounded-lg hover:opacity-90 transition">
-                Join Free
-              </a>
-            </div>
+    <div style={{minHeight:"100vh",background:"linear-gradient(180deg,#0d0a14 0%,#140a1e 100%)",
+      color:"#e2e8f0",fontFamily:"system-ui,sans-serif"}}>
+
+      {/* Nav */}
+      <nav style={{position:"sticky",top:0,zIndex:100,
+        background:"rgba(13,10,20,0.95)",backdropFilter:"blur(12px)",
+        borderBottom:"1px solid rgba(255,255,255,0.06)",padding:"0 24px"}}>
+        <div style={{maxWidth:1100,margin:"0 auto",height:60,
+          display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+          <div style={{display:"flex",alignItems:"center",gap:10}}>
+            <span style={{fontSize:22}}>💫</span>
+            <span style={{fontSize:16,fontWeight:800,color:"#fff"}}>Javari Connect</span>
           </div>
+          <a href="https://craudiovizai.com/auth/signup" style={{
+            background:"linear-gradient(135deg,#EC4899,#8B5CF6)",color:"#fff",
+            textDecoration:"none",padding:"8px 18px",borderRadius:8,
+            fontSize:13,fontWeight:700}}>
+            Join Free
+          </a>
         </div>
       </nav>
 
       {/* Hero */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-rose-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl" />
+      <section style={{maxWidth:800,margin:"0 auto",padding:"90px 24px 70px",textAlign:"center"}}>
+        <div style={{display:"inline-flex",alignItems:"center",gap:8,
+          background:"rgba(236,72,153,0.12)",border:"1px solid rgba(236,72,153,0.3)",
+          borderRadius:100,padding:"6px 16px",marginBottom:24,fontSize:13,color:"#F472B6"}}>
+          <span>✨</span> AI-powered meaningful connections
         </div>
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div
-}
-}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-rose-500/20 border border-rose-500/30 rounded-full text-sm text-rose-300 mb-8"
-          >
-            <Shield className="w-4 h-4" />
-            <span>100% verified profiles</span>
-          </div>
-
-          <h1
-}
-}
-}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6"
-          >
-            Find Your<br/>
-            <span className="bg-gradient-to-r from-rose-400 via-pink-400 to-red-400 bg-clip-text text-transparent">
-              Perfect Match
-            </span>
-          </h1>
-
-          <p
-}
-}
-}
-            className="text-xl text-gray-300 max-w-3xl mx-auto mb-10"
-          >
-            Meaningful connections start here. AI-powered matching based on 
-            compatibility, values, and shared interests.
-          </p>
-
-          <div
-}
-}
-}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
-          >
-            <a href="#start" className="px-8 py-4 bg-gradient-to-r from-rose-600 to-pink-600 text-white font-semibold rounded-xl hover:opacity-90 transition flex items-center gap-2">
-              Create Free Profile
-              <ArrowRight className="w-5 h-5" />
-            </a>
-            <a href="#how-it-works" className="px-8 py-4 border border-white/20 text-white font-semibold rounded-xl hover:bg-white/5 transition">
-              Learn More
-            </a>
-          </div>
-
-          {/* Stats */}
-          <div
-}
-}
-}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4"
-          >
-            {stats.map((stat, i) => (
-              <div key={i} className="p-4 bg-white/5 border border-white/10 rounded-xl">
-                <div className="text-2xl font-bold text-white">{stat.value}</div>
-                <div className="text-sm text-gray-400">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+        <div style={{fontSize:"clamp(30px,6vw,58px)",fontWeight:900,lineHeight:1.15,
+          margin:"0 0 20px",background:"linear-gradient(135deg,#fff,#EC4899,#8B5CF6)",
+          WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>
+          Find Your Person.<br/>Not Just a Match.
         </div>
-      </section>
+        <p style={{fontSize:18,color:"#9CA3AF",maxWidth:520,margin:"0 auto 40px",lineHeight:1.7}}>
+          Javari AI goes beyond swipes to help you build genuine connections
+          based on who you actually are — not just your photos.
+        </p>
 
-      {/* How It Works */}
-      <section id="how-it-works" className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">How It Works</h2>
-            <p className="text-xl text-gray-400">Find your match in 3 simple steps</p>
+        {submitted ? (
+          <div style={{background:"rgba(16,185,129,0.1)",border:"1px solid rgba(16,185,129,0.3)",
+            borderRadius:14,padding:24,display:"inline-block"}}>
+            <div style={{fontSize:28,marginBottom:8}}>🎉</div>
+            <div style={{fontSize:16,fontWeight:700,color:"#10B981"}}>You are on the waitlist!</div>
+            <div style={{fontSize:14,color:"#6B7280",marginTop:4}}>
+              We will notify you when Javari Connect launches in your area.
+            </div>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { step: 1, title: 'Create Your Profile', desc: 'Share your interests, values, and what you are looking for', icon: Users },
-              { step: 2, title: 'Get Matched', desc: 'Our AI finds compatible matches based on deep compatibility', icon: Sparkles },
-              { step: 3, title: 'Connect & Meet', desc: 'Chat, video date, and plan your first real-world meetup', icon: MessageCircle },
-            ].map((item, i) => (
-              <div
-                key={i}
-}
-}
-}
-                className="relative p-6 bg-white/5 border border-white/10 rounded-2xl"
-              >
-                <div className="absolute -top-4 left-6 w-8 h-8 bg-gradient-to-r from-rose-600 to-pink-600 rounded-full flex items-center justify-center text-white font-bold">
-                  {item.step}
-                </div>
-                <item.icon className="w-10 h-10 text-rose-400 mb-4 mt-4" />
-                <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
-                <p className="text-gray-400">{item.desc}</p>
-              </div>
-            ))}
+        ) : (
+          <div>
+            <div style={{display:"flex",gap:10,maxWidth:480,margin:"0 auto 12px",flexWrap:"wrap"}}>
+              <input type="email" value={email} onChange={e=>setEmail(e.target.value)}
+                placeholder="your@email.com"
+                onKeyDown={e=>{if(e.key==="Enter")joinWaitlist();}}
+                style={{flex:1,minWidth:200,background:"rgba(255,255,255,0.06)",
+                  border:"1px solid rgba(255,255,255,0.12)",borderRadius:12,
+                  padding:"14px 18px",color:"#e2e8f0",fontSize:15,
+                  fontFamily:"system-ui",outline:"none"}}/>
+              <button onClick={joinWaitlist}
+                style={{background:"linear-gradient(135deg,#EC4899,#8B5CF6)",
+                  color:"#fff",border:"none",borderRadius:12,padding:"14px 24px",
+                  fontSize:15,fontWeight:700,cursor:"pointer",fontFamily:"system-ui",
+                  whiteSpace:"nowrap"}}>
+                Join Waitlist
+              </button>
+            </div>
+            <p style={{fontSize:13,color:"#4B5563"}}>
+              Free to join · No credit card · Launching Q3 2026
+            </p>
           </div>
-        </div>
+        )}
       </section>
 
       {/* Features */}
-      <section className="py-20 bg-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Why Choose Us</h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((feature, i) => (
-              <div
-                key={i}
-}
-}
-}
-                className="p-6 bg-slate-900/50 border border-white/10 rounded-xl text-center"
-              >
-                <feature.icon className="w-10 h-10 text-rose-400 mx-auto mb-4" />
-                <h3 className="font-semibold text-white mb-2">{feature.title}</h3>
-                <p className="text-sm text-gray-400">{feature.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Success Stories */}
-      <section id="success" className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Success Stories</h2>
-            <p className="text-xl text-gray-400">Real couples who found love here</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t, i) => (
-              <div
-                key={i}
-}
-}
-}
-                className="p-6 bg-white/5 border border-white/10 rounded-xl"
-              >
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Heart key={i} className="w-4 h-4 text-rose-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-300 mb-4">"{t.quote}"</p>
-                <div className="flex items-center justify-between">
-                  <span className="font-semibold text-white">{t.name}</span>
-                  <span className="text-rose-400 text-sm">{t.duration}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section id="start" className="py-20 bg-gradient-to-r from-rose-900/50 to-pink-900/50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Your Story Starts Here</h2>
-          <p className="text-xl text-gray-300 mb-8">Join millions finding meaningful connections</p>
-          <a href="/signup" className="inline-flex items-center gap-2 px-8 py-4 bg-white text-rose-900 font-semibold rounded-xl hover:bg-gray-100 transition">
-            <Heart className="w-5 h-5" />
-            Create Free Profile
-          </a>
+      <section style={{maxWidth:900,margin:"0 auto",padding:"0 24px 80px"}}>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(260px,1fr))",gap:14}}>
+          {FEATURES.map(f=>(
+            <div key={f.title} style={{background:"rgba(255,255,255,0.03)",
+              border:"1px solid rgba(236,72,153,0.12)",borderRadius:14,padding:24}}>
+              <div style={{fontSize:28,marginBottom:10}}>{f.icon}</div>
+              <div style={{fontSize:15,fontWeight:700,color:"#fff",marginBottom:8}}>{f.title}</div>
+              <div style={{fontSize:13,color:"#6B7280",lineHeight:1.7}}>{f.desc}</div>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-2">
-              <Heart className="w-6 h-6 text-rose-400" />
-              <span className="text-white font-semibold">Javari Connect</span>
-              <span className="text-gray-500">by CR AudioViz AI</span>
-            </div>
-            <div className="text-sm text-gray-400">
-              © {new Date().getFullYear()} CR AudioViz AI, LLC. All rights reserved.
-            </div>
-          </div>
-        </div>
+      <footer style={{borderTop:"1px solid rgba(255,255,255,0.06)",padding:"32px 24px",
+        textAlign:"center",fontSize:12,color:"#374151"}}>
+        CR AudioViz AI · EIN 39-3646201 · SAM.gov UEI H5T3QG19ND91 · Fort Myers, FL<br/>
+        <a href="https://craudiovizai.com" style={{color:"#6B7280",textDecoration:"none"}}>
+          Powered by CR AudioViz AI Platform
+        </a>
       </footer>
     </div>
   );
