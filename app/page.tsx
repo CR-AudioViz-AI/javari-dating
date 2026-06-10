@@ -1,7 +1,5 @@
-'use client';
-
+"use client";
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import { 
   Heart, MessageCircle, Shield, Sparkles, Users, MapPin,
   CheckCircle, ArrowRight, Star, Lock, Camera, Video,
@@ -71,41 +69,41 @@ export default function DatingPage() {
         </div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+          <div
+}
+}
             className="inline-flex items-center gap-2 px-4 py-2 bg-rose-500/20 border border-rose-500/30 rounded-full text-sm text-rose-300 mb-8"
           >
             <Shield className="w-4 h-4" />
             <span>100% verified profiles</span>
-          </motion.div>
+          </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
+          <h1
+}
+}
+}
             className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6"
           >
             Find Your<br/>
             <span className="bg-gradient-to-r from-rose-400 via-pink-400 to-red-400 bg-clip-text text-transparent">
               Perfect Match
             </span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+          <p
+}
+}
+}
             className="text-xl text-gray-300 max-w-3xl mx-auto mb-10"
           >
             Meaningful connections start here. AI-powered matching based on 
             compatibility, values, and shared interests.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+          <div
+}
+}
+}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
           >
             <a href="#start" className="px-8 py-4 bg-gradient-to-r from-rose-600 to-pink-600 text-white font-semibold rounded-xl hover:opacity-90 transition flex items-center gap-2">
@@ -115,13 +113,13 @@ export default function DatingPage() {
             <a href="#how-it-works" className="px-8 py-4 border border-white/20 text-white font-semibold rounded-xl hover:bg-white/5 transition">
               Learn More
             </a>
-          </motion.div>
+          </div>
 
           {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
+          <div
+}
+}
+}
             className="grid grid-cols-2 md:grid-cols-4 gap-4"
           >
             {stats.map((stat, i) => (
@@ -130,7 +128,7 @@ export default function DatingPage() {
                 <div className="text-sm text-gray-400">{stat.label}</div>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -148,11 +146,11 @@ export default function DatingPage() {
               { step: 2, title: 'Get Matched', desc: 'Our AI finds compatible matches based on deep compatibility', icon: Sparkles },
               { step: 3, title: 'Connect & Meet', desc: 'Chat, video date, and plan your first real-world meetup', icon: MessageCircle },
             ].map((item, i) => (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
+}
+}
+}
                 className="relative p-6 bg-white/5 border border-white/10 rounded-2xl"
               >
                 <div className="absolute -top-4 left-6 w-8 h-8 bg-gradient-to-r from-rose-600 to-pink-600 rounded-full flex items-center justify-center text-white font-bold">
@@ -161,7 +159,7 @@ export default function DatingPage() {
                 <item.icon className="w-10 h-10 text-rose-400 mb-4 mt-4" />
                 <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
                 <p className="text-gray-400">{item.desc}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -176,17 +174,17 @@ export default function DatingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, i) => (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
+}
+}
+}
                 className="p-6 bg-slate-900/50 border border-white/10 rounded-xl text-center"
               >
                 <feature.icon className="w-10 h-10 text-rose-400 mx-auto mb-4" />
                 <h3 className="font-semibold text-white mb-2">{feature.title}</h3>
                 <p className="text-sm text-gray-400">{feature.desc}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -202,11 +200,11 @@ export default function DatingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
-              <motion.div
+              <div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
+}
+}
+}
                 className="p-6 bg-white/5 border border-white/10 rounded-xl"
               >
                 <div className="flex items-center gap-1 mb-4">
@@ -219,7 +217,7 @@ export default function DatingPage() {
                   <span className="font-semibold text-white">{t.name}</span>
                   <span className="text-rose-400 text-sm">{t.duration}</span>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
